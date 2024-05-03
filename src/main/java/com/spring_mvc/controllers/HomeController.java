@@ -3,6 +3,7 @@ package com.spring_mvc.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,5 +27,15 @@ public class HomeController {
     @RequestMapping("/about")
     public String about() {
         return "about";
+    }
+    @RequestMapping("/help")
+    public ModelAndView help() {
+        ModelAndView modelAndView = new ModelAndView();
+        //setting the attribute
+        modelAndView.addObject("name","Aryan Sapra");
+        modelAndView.addObject("message","Help me");
+        //setting the view page
+        modelAndView.setViewName("help");
+        return modelAndView;
     }
 }
